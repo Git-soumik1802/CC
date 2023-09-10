@@ -57,7 +57,6 @@ const currencies = {
     XOF: "West African CFA Franc",
 };
 
-
 function populateCurrencyDropdowns() {
     const fromCurrencySelect = document.getElementById("fromCurrency");
     const toCurrencySelect = document.getElementById("toCurrency");
@@ -76,25 +75,18 @@ function populateCurrencyDropdowns() {
     }
 }
 
-
 window.onload = populateCurrencyDropdowns;
+
 function convertCurrency() {
     const fromCurrency = document.getElementById("fromCurrency").value;
     const toCurrency = document.getElementById("toCurrency").value;
     const amount = parseFloat(document.getElementById("amount").value);
 
-
+    // Replace the fixed exchange rate with actual conversion logic here
     const exchangeRate = 1.25;
 
     const result = (amount * exchangeRate).toFixed(2);
     document.getElementById("result").textContent = `${amount} ${fromCurrency} is equal to ${result} ${toCurrency}`;
 }
 
-
 document.getElementById("convert").addEventListener("click", convertCurrency);
-const { convertCurrency } = require('./currencyConverter');
-
-test('Converts currency correctly', () => {
-    expect(convertCurrency('USD', 'EUR', 100)).toBe(125);
-    expect(convertCurrency('EUR', 'GBP', 50)).toBe(45);
-
